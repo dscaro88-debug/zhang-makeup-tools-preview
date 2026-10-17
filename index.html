@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMIÈRE BEAUTY | Premium Makeup Tools Manufacturer · OEM & Private Label</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FBF6F0;
+      --cream-dark: #F3EBE2;
+      --ink: #1B1714;
+      --ink-soft: #2F2823;
+      --rose: #B76E79;
+      --rose-soft: #D49BA3;
+      --blush: #EBD3CC;
+      --gold: #C2A06B;
+      --gold-light: #D9C09A;
+      --white: #FFFFFF;
+      --muted: #8A7E76;
+      --hairline: rgba(27,23,20,.10);
+      --shadow: 0 24px 60px rgba(27,23,20,.12);
+      --ease: cubic-bezier(.25,.1,.25,1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Playfair Display', serif; margin: 0; font-weight: 500; line-height: 1.05; }
+    p { margin: 0; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .container { width: 92%; max-width: 1320px; margin-inline: auto; }
+    .container-narrow { width: 92%; max-width: 1080px; margin-inline: auto; }
+
+    /* Announcement */
+    .announce {
+      background: var(--ink);
+      color: var(--gold-light);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 10px 0;
+      font-weight: 500;
+    }
+
+    /* Nav */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      transition: background .35s var(--ease), box-shadow .35s var(--ease), color .35s var(--ease);
+      color: var(--white);
+      padding: 0;
+    }
+    .nav.scrolled {
+      background: rgba(251,246,240,.96);
+      backdrop-filter: blur(10px);
+      color: var(--ink);
+      box-shadow: 0 1px 0 var(--hairline);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+    .logo span { font-weight: 300; font-style: italic; color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .nav-links a { opacity: .85; transition: opacity .2s; position: relative; }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: currentColor;
+      transition: width .25s var(--ease);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      display: flex; align-items: center; gap: 16px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 13px 28px;
+      font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      border-radius: 0; transition: all .3s var(--ease);
+    }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, #A98A52 100%);
+      color: var(--white);
+      box-shadow: 0 8px 20px rgba(194,160,107,.3);
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(194,160,107,.35); }
+    .btn-outline {
+      border: 1px solid currentColor; color: var(--white);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .btn-outline-dark {
+      border: 1px solid var(--ink); color: var(--ink);
+    }
+    .btn-outline-dark:hover { background: var(--ink); color: var(--white); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex; align-items: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: url('images/A_luxurious_cinematic_editoria_2026-10-16T16-56-41.png') center/cover no-repeat;
+      transform: scale(1.02);
+      transition: transform 8s ease;
+    }
+    .hero.loaded .hero-bg { transform: scale(1); }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(27,23,20,.78) 0%, rgba(27,23,20,.42) 45%, rgba(27,23,20,.15) 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      width: 92%; max-width: 1320px; margin-inline: auto;
+      padding-top: 120px; padding-bottom: 80px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 24px;
+      border-left: 2px solid var(--gold); padding-left: 14px;
+    }
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 92px);
+      max-width: 800px;
+      margin-bottom: 26px;
+      letter-spacing: -.02em;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold-light); }
+    .hero-lead {
+      font-size: clamp(17px, 1.8vw, 20px);
+      font-weight: 300;
+      max-width: 540px;
+      line-height: 1.7;
+      opacity: .92;
+      margin-bottom: 38px;
+    }
+    .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    /* Trust strip */
+    .trust {
+      background: var(--cream);
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 56px 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+    .trust-item { text-align: center; }
+    .trust-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 46px;
+      font-weight: 500;
+      color: var(--rose);
+      line-height: 1;
+    }
+    .trust-label {
+      font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    /* Section titles */
+    .section-head {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .section-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-size: clamp(34px, 4.2vw, 56px);
+      max-width: 800px; margin-inline: auto;
+    }
+    .section-sub {
+      font-size: 17px; font-weight: 300; color: var(--muted);
+      max-width: 660px; margin: 18px auto 0; line-height: 1.7;
+    }
+
+    /* Categories */
+    .categories { padding: 120px 0; background: var(--cream); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+    }
+    .cat-card {
+      position: relative;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .cat-card img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .7s var(--ease);
+    }
+    .cat-card:hover img { transform: scale(1.06); }
+    .cat-card-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,23,20,.72) 0%, rgba(27,23,20,.18) 55%, transparent 100%);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 36px;
+      color: var(--white);
+    }
+    .cat-card h3 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .cat-card p {
+      font-size: 14px; font-weight: 300; opacity: .88;
+      margin-bottom: 20px;
+      max-width: 240px;
+    }
+    .cat-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .cat-link svg { transition: transform .25s var(--ease); }
+    .cat-card:hover .cat-link svg { transform: translateX(5px); }
+
+    /* Product grid */
+    .products { padding: 120px 0; background: var(--cream-dark); }
+    .filter-bar {
+      display: flex; justify-content: center; gap: 12px;
+      margin-bottom: 56px; flex-wrap: wrap;
+    }
+    .filter-pill {
+      padding: 10px 22px;
+      border: 1px solid var(--hairline);
+      background: transparent;
+      font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted);
+      transition: all .2s;
+    }
+    .filter-pill:hover, .filter-pill.active {
+      background: var(--ink); color: var(--white); border-color: var(--ink);
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .product-card {
+      background: var(--cream);
+      transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+    .product-img {
+      aspect-ratio: 1/1.1;
+      overflow: hidden;
+      background: var(--blush);
+    }
+    .product-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-body { padding: 26px 28px 30px; }
+    .product-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+    .product-meta {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .product-swatches { display: flex; gap: 7px; margin-bottom: 20px; }
+    .swatch {
+      width: 16px; height: 16px; border-radius: 50%;
+      border: 1px solid rgba(27,23,20,.12);
+    }
+    .product-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .product-actions .btn {
+      padding: 11px 0; font-size: 10px; letter-spacing: .1em;
+    }
+    .btn-wa {
+      background: #25D366; color: var(--white);
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    }
+    .btn-wa:hover { background: #1DA851; }
+    .btn-wa svg { width: 13px; height: 13px; }
+
+    /* Glamour section */
+    .glamour {
+      position: relative;
+      min-height: 86vh;
+      display: flex; align-items: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+    .glamour-bg {
+      position: absolute; inset: 0;
+      background: url('images/An_artistic_flat_lay_of_lipsti_2026-10-16T16-56-39.png') center/cover no-repeat;
+    }
+    .glamour-overlay {
+      position: absolute; inset: 0;
+      background: rgba(27,23,20,.62);
+    }
+    .glamour-content {
+      position: relative; z-index: 2;
+      max-width: 760px;
+    }
+    .glamour .section-eyebrow { color: var(--gold-light); border-left-color: var(--gold-light); }
+    .glamour h2 {
+      font-size: clamp(42px, 6vw, 78px);
+      margin-bottom: 28px;
+    }
+    .glamour p {
+      font-size: 18px; font-weight: 300; line-height: 1.8;
+      max-width: 540px; opacity: .92; margin-bottom: 36px;
+    }
+
+    /* OEM / ODM */
+    .services { padding: 120px 0; background: var(--cream); }
+    .service-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 54px 48px;
+      border: 1px solid var(--hairline);
+    }
+    .service-card h3 {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+    .service-card p {
+      font-size: 15px; line-height: 1.75; color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .steps { list-style: none; padding: 0; margin: 0; }
+    .steps li {
+      display: flex; gap: 18px; align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--hairline);
+      font-size: 14px; line-height: 1.6;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px; color: var(--rose); line-height: 1;
+      min-width: 36px;
+    }
+    .step-title { font-weight: 700; color: var(--ink); display: block; margin-bottom: 4px; }
+
+    /* Why us + certifications */
+    .why { padding: 120px 0; background: var(--cream-dark); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 80px;
+    }
+    .why-item {
+      text-align: center;
+      padding: 42px 28px;
+      border: 1px solid var(--hairline);
+      background: var(--cream);
+    }
+    .why-icon {
+      width: 46px; height: 46px;
+      margin: 0 auto 20px;
+      color: var(--rose);
+    }
+    .why-item h4 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .why-item p {
+      font-size: 14px; color: var(--muted); line-height: 1.65;
+    }
+    .certs {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;
+    }
+    .cert-badge {
+      padding: 12px 24px;
+      border: 1px solid var(--hairline);
+      font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--muted); background: var(--cream);
+    }
+
+    /* Testimonials */
+    .testimonials { padding: 120px 0; background: var(--blush); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+    }
+    .testi-card {
+      background: var(--cream);
+      padding: 42px;
+      border: 1px solid rgba(27,23,20,.06);
+    }
+    .testi-card .quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+    .testi-author {
+      font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .testi-role { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+    /* Inquiry */
+    .inquiry { padding: 120px 0; background: var(--cream); }
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .inquiry-left h2 { margin-bottom: 22px; }
+    .inquiry-left p {
+      font-size: 17px; line-height: 1.75; color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .inquiry-cta {
+      display: flex; align-items: center; gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      margin-bottom: 24px;
+    }
+    .inquiry-cta svg { width: 40px; height: 40px; color: var(--rose); }
+    .inquiry-cta strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .inquiry-cta span { font-size: 13px; color: var(--muted); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .form-group { margin-bottom: 22px; }
+    .form-group label {
+      display: block;
+      font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      margin-bottom: 8px; color: var(--muted);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid var(--hairline);
+      background: var(--white);
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      color: var(--ink);
+      border-radius: 0;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+    .form-group textarea { min-height: 120px; resize: vertical; }
+    .form-thanks {
+      display: none;
+      padding: 26px 30px;
+      background: var(--ink); color: var(--white);
+      font-size: 15px; line-height: 1.7;
+    }
+    .form-thanks.show { display: block; }
+
+    /* Footer */
+    .footer {
+      background: var(--ink);
+      color: rgba(255,255,255,.7);
+      padding: 86px 0 36px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr repeat(3, 1fr);
+      gap: 48px;
+      margin-bottom: 72px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px; font-weight: 600;
+      color: var(--white); margin-bottom: 18px;
+    }
+    .footer-logo span { font-weight: 300; font-style: italic; color: var(--gold); }
+    .footer-about {
+      font-size: 14px; line-height: 1.7;
+      max-width: 300px;
+    }
+    .footer-col h5 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 22px;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 14px; margin-bottom: 12px;
+      transition: color .2s;
+    }
+    .footer-col a:hover { color: var(--gold-light); }
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      font-size: 12px; letter-spacing: .08em;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float {
+      position: fixed;
+      right: 28px; bottom: 28px;
+      width: 58px; height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 30px rgba(37,211,102,.35);
+      z-index: 999;
+      transition: transform .25s;
+    }
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 28px; height: 28px; fill: var(--white); }
+
+    /* Mobile nav toggle */
+    .menu-toggle { display: none; }
+
+    @media (max-width: 1024px) {
+      .cat-grid, .product-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
+      .inquiry-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta .btn-outline { display: none; }
+      .menu-toggle { display: block; }
+      .trust-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .cat-grid, .product-grid, .testi-grid, .service-grid, .why-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 42px; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+      .service-card { padding: 36px 28px; }
+      .testi-grid { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="announce">Factory-Direct Makeup Tools · <strong>OEM / ODM Private Label</strong> · Quote in 24 Hours</div>
+
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">LUMIÈRE <span>Beauty</span></a>
+      <div class="nav-links">
+        <a href="#products">Products</a>
+        <a href="#services">OEM & ODM</a>
+        <a href="#why">Why Us</a>
+        <a href="#inquiry">Inquiry</a>
+      </div>
+      <div class="nav-cta">
+        <a href="#inquiry" class="btn btn-gold">Request a Quote</a>
+      </div>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+
+  <header class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Premium Makeup Tools Manufacturer</div>
+      <h1>Where <em>beautiful</em> looks begin.</h1>
+      <p class="hero-lead">Private-label makeup brushes, LED mirrors and cosmetics for beauty brands, salons and retailers. Designed in-house, manufactured at scale, delivered worldwide.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-gold">Explore the Collection</a>
+        <a href="#inquiry" class="btn btn-outline">Request a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="trust">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <div class="trust-num">18+</div>
+        <div class="trust-label">Years in Beauty</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">80+</div>
+        <div class="trust-label">Export Markets</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">1.2M</div>
+        <div class="trust-label">Units / Month</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">600+</div>
+        <div class="trust-label">SKU Library</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Our Collection</div>
+        <h2 class="section-title">Three essentials for every beauty brand.</h2>
+        <p class="section-sub">Designed to feel premium on the shelf, perform beautifully in use, and ship efficiently to your warehouse.</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <img src="images/Close_up_of_a_curated_collecti_2026-10-16T16-56-41.png" alt="Makeup Brushes" />
+          <div class="cat-card-overlay">
+            <h3>Brushes</h3>
+            <p>Vegan, professional-grade bristles with custom handles and ferrules.</p>
+            <span class="cat-link">View Collection <svg width="14" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5h11M9 2l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+        <div class="cat-card">
+          <img src="images/An_elegant_round_LED_vanity_ma_2026-10-16T16-56-43.png" alt="LED Makeup Mirrors" />
+          <div class="cat-card-overlay">
+            <h3>Mirrors</h3>
+            <p>LED vanity and portable mirrors with custom logos and packaging.</p>
+            <span class="cat-link">View Collection <svg width="14" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5h11M9 2l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+        <div class="cat-card">
+          <img src="images/An_artistic_flat_lay_of_lipsti_2026-10-16T16-56-39.png" alt="Color Cosmetics" />
+          <div class="cat-card-overlay">
+            <h3>Color</h3>
+            <p>Lip, eye and face formulas developed for your market and regulations.</p>
+            <span class="cat-link">View Collection <svg width="14" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 5h11M9 2l3 3-3 3"/></svg></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Wholesale Catalog</div>
+        <h2 class="section-title">Best-selling tools, ready for your label.</h2>
+        <p class="section-sub">Browse reference styles with pricing and MOQ. All designs can be customized with your logo, color and packaging.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="brushes">Brushes</button>
+        <button class="filter-pill" data-filter="mirrors">Mirrors</button>
+        <button class="filter-pill" data-filter="color">Color</button>
+      </div>
+
+      <div class="product-grid">
+        <div class="product-card" data-cat="brushes">
+          <div class="product-img"><img src="images/Close_up_of_a_curated_collecti_2026-10-16T16-56-41.png" alt="Rose-Gold 10-Piece Brush Set" /></div>
+          <div class="product-body">
+            <div class="product-tag">Brushes</div>
+            <h3 class="product-name">Rose-Gold 10-Piece Set</h3>
+            <div class="product-meta">from $4.80 / set · MOQ 500</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#C2A06B"></span>
+              <span class="swatch" style="background:#B76E79"></span>
+              <span class="swatch" style="background:#3E3026"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20Rose-Gold%2010-Piece%20Brush%20Set.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="Rose-Gold 10-Piece Set">Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="mirrors">
+          <div class="product-img"><img src="images/An_elegant_round_LED_vanity_ma_2026-10-16T16-56-43.png" alt="LED Ring Vanity Mirror" /></div>
+          <div class="product-body">
+            <div class="product-tag">Mirrors</div>
+            <h3 class="product-name">LED Ring Vanity Mirror</h3>
+            <div class="product-meta">from $12.50 / pc · MOQ 300</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#C2A06B"></span>
+              <span class="swatch" style="background:#FFFFFF"></span>
+              <span class="swatch" style="background:#1B1714"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20LED%20Ring%20Vanity%20Mirror.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="LED Ring Vanity Mirror">Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="color">
+          <div class="product-img"><img src="images/An_artistic_flat_lay_of_lipsti_2026-10-16T16-56-39.png" alt="Nude Lipstick Range" /></div>
+          <div class="product-body">
+            <div class="product-tag">Color</div>
+            <h3 class="product-name">Nude Lipstick Range</h3>
+            <div class="product-meta">from $1.90 / pc · MOQ 1,200</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#D49BA3"></span>
+              <span class="swatch" style="background:#A65D5D"></span>
+              <span class="swatch" style="background:#C78B6E"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20Nude%20Lipstick%20Range.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="Nude Lipstick Range">Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="brushes">
+          <div class="product-img"><img src="images/Close_up_of_a_curated_collecti_2026-10-16T16-56-41.png" alt="Professional Face Brush" /></div>
+          <div class="product-body">
+            <div class="product-tag">Brushes</div>
+            <h3 class="product-name">Professional Face Brush</h3>
+            <div class="product-meta">from $2.40 / pc · MOQ 800</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#3E3026"></span>
+              <span class="swatch" style="background:#C2A06B"></span>
+              <span class="swatch" style="background:#B76E79"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20Professional%20Face%20Brush.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="Professional Face Brush">Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="mirrors">
+          <div class="product-img"><img src="images/An_elegant_round_LED_vanity_ma_2026-10-16T16-56-43.png" alt="Portable Folding Mirror" /></div>
+          <div class="product-body">
+            <div class="product-tag">Mirrors</div>
+            <h3 class="product-name">Portable Folding Mirror</h3>
+            <div class="product-meta">from $5.20 / pc · MOQ 500</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#FFFFFF"></span>
+              <span class="swatch" style="background:#B76E79"></span>
+              <span class="swatch" style="background:#1B1714"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20Portable%20Folding%20Mirror.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="Portable Folding Mirror">Quote</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-cat="color">
+          <div class="product-img"><img src="images/An_artistic_flat_lay_of_lipsti_2026-10-16T16-56-39.png" alt="Velvet Eyeshadow Palette" /></div>
+          <div class="product-body">
+            <div class="product-tag">Color</div>
+            <h3 class="product-name">Velvet Eyeshadow Palette</h3>
+            <div class="product-meta">from $3.60 / pc · MOQ 600</div>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#A65D5D"></span>
+              <span class="swatch" style="background:#C78B6E"></span>
+              <span class="swatch" style="background:#D4AF37"></span>
+            </div>
+            <div class="product-actions">
+              <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20am%20interested%20in%20Velvet%20Eyeshadow%20Palette.%20Please%20send%20details." target="_blank" class="btn btn-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg> WhatsApp</a>
+              <button class="btn btn-outline-dark quote-btn" data-product="Velvet Eyeshadow Palette">Quote</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="glamour">
+    <div class="glamour-bg"></div>
+    <div class="glamour-overlay"></div>
+    <div class="container">
+      <div class="glamour-content">
+        <div class="hero-eyebrow" style="border-color:var(--gold-light);">The LUMIÈRE Standard</div>
+        <h2>Tools trusted by beauty brands worldwide.</h2>
+        <p>From concept sketches to shelf-ready packaging, we partner with brands, retailers and salons to create private-label collections that feel premium and perform consistently.</p>
+        <a href="#inquiry" class="btn btn-gold">Start Your Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Manufacturing Services</div>
+        <h2 class="section-title">Two ways to build your line.</h2>
+        <p class="section-sub">Whether you have a fully finished design or just a concept, our team can take it to production.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3>Private Label</h3>
+          <p>Choose from our existing catalog and add your logo, color scheme and packaging. Fastest route to market with lower MOQ.</p>
+          <ul class="steps">
+            <li><span class="step-num">01</span><div><span class="step-title">Select styles</span>Pick from 600+ tested SKUs in our catalog.</div></li>
+            <li><span class="step-num">02</span><div><span class="step-title">Customize branding</span>Logo print, handle color, packaging box.</div></li>
+            <li><span class="step-num">03</span><div><span class="step-title">Approve samples</span>Free pre-production samples for confirmation.</div></li>
+            <li><span class="step-num">04</span><div><span class="step-title">Mass production</span>4–6 week lead time from PO to shipment.</div></li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Custom Manufacturing</h3>
+          <p>Develop a unique product from scratch. Our engineers and designers work with your brief to create molds, materials and packaging.</p>
+          <ul class="steps">
+            <li><span class="step-num">01</span><div><span class="step-title">Share your brief</span>Send references, specs and target price.</div></li>
+            <li><span class="step-num">02</span><div><span class="step-title">Design & sampling</span>3D renderings and physical samples.</div></li>
+            <li><span class="step-num">03</span><div><span class="step-title">Tooling & testing</span>Mold making, material and safety tests.</div></li>
+            <li><span class="step-num">04</span><div><span class="step-title">Scale up</span>Bulk production and quality inspection.</div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Why LUMIÈRE</div>
+        <h2 class="section-title">Built for brands that care about details.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <h4>Fast Sampling</h4>
+          <p>Pre-production samples in 7–10 days so you can validate before committing.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h4>Certified Quality</h4>
+          <p>ISO, GMPC, REACH, CPNP and FDA-registered processes for global markets.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <h4>Design Studio</h4>
+          <p>In-house designers turn your brand story into product and packaging.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6l3 1m0 0l-3 9a5 5 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5 5 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+          <h4>Flexible MOQ</h4>
+          <p>Start small, scale smart. Private-label MOQs from 300–500 units.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <h4>Export Logistics</h4>
+          <p>Door-to-door shipping, customs docs and Amazon FBA prep available.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <h4>Dedicated Support</h4>
+          <p>One account manager from first inquiry to after-sales.</p>
+        </div>
+      </div>
+      <div class="certs">
+        <div class="cert-badge">ISO 9001</div>
+        <div class="cert-badge">GMPC</div>
+        <div class="cert-badge">EU REACH</div>
+        <div class="cert-badge">CPNP</div>
+        <div class="cert-badge">FDA Registered</div>
+        <div class="cert-badge">SGS Audited</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-head">
+        <div class="section-eyebrow">Partner Voices</div>
+        <h2 class="section-title">What our clients say.</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <p class="quote">"The rose-gold brush set became our bestseller within two months. The finish feels twice the price."</p>
+          <div class="testi-author">Emma Richardson</div>
+          <div class="testi-role">Founder, Bloom Cosmetics UK</div>
+        </div>
+        <div class="testi-card">
+          <p class="quote">"MOQ flexibility and fast samples made it easy to test our brand before scaling."</p>
+          <div class="testi-author">Sofia Lindqvist</div>
+          <div class="testi-role">Buyer, Nordic Beauty Group</div>
+        </div>
+        <div class="testi-card">
+          <p class="quote">"Professional communication, clean documentation and always on schedule."</p>
+          <div class="testi-author">Marie Dubois</div>
+          <div class="testi-role">Procurement, Lumière Paris Retail</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="inquiry" id="inquiry">
+    <div class="container">
+      <div class="inquiry-grid">
+        <div class="inquiry-left">
+          <div class="section-eyebrow" style="text-align:left;">Get Started</div>
+          <h2 class="section-title" style="text-align:left; margin:0 0 22px; max-width:none;">Request pricing in 24 hours.</h2>
+          <p>Tell us what you are building. We will reply with a tailored catalog, samples plan and MOQ/lead-time estimate.</p>
+          <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20would%20like%20to%20request%20a%20quote%20for%20private-label%20makeup%20tools." target="_blank" class="inquiry-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg>
+            <div>
+              <strong>WhatsApp us directly</strong>
+              <span>Fastest replies for urgent RFQs and sample requests.</span>
+            </div>
+          </a>
+          <p style="font-size:14px; color:var(--muted);">Or fill out the form and we will email you within one business day.</p>
+        </div>
+        <div class="inquiry-right">
+          <form id="quoteForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required />
+              </div>
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="whatsapp">WhatsApp / Phone</label>
+                <input type="text" id="whatsapp" name="whatsapp" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="interest">Product Interest</label>
+              <select id="interest" name="interest">
+                <option>Makeup Brushes</option>
+                <option>LED Makeup Mirrors</option>
+                <option>Color Cosmetics</option>
+                <option>Full Collection / Multiple Categories</option>
+                <option>Custom Development</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" placeholder="Tell us about quantities, target market, timeline..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold" style="width:100%;">Send Inquiry</button>
+          </form>
+          <div class="form-thanks" id="formThanks">
+            Thank you. We have received your inquiry and will send pricing within 24 hours. A copy has also been sent to your email.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">LUMIÈRE <span>Beauty</span></div>
+          <p class="footer-about">Premium private-label makeup tools manufacturer. 18+ years exporting brushes, mirrors and color cosmetics to beauty brands worldwide.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Products</h5>
+          <a href="#products">Makeup Brushes</a>
+          <a href="#products">LED Mirrors</a>
+          <a href="#products">Color Cosmetics</a>
+          <a href="#products">Catalog Download</a>
+        </div>
+        <div class="footer-col">
+          <h5>Services</h5>
+          <a href="#services">Private Label</a>
+          <a href="#services">Custom Manufacturing</a>
+          <a href="#services">Packaging Design</a>
+          <a href="#services">Logistics Support</a>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <a href="mailto:hello@lumierebeauty.com">hello@lumierebeauty.com</a>
+          <a href="tel:+8610000000000">+86 100 0000 0000</a>
+          <a href="https://wa.me/861000000000" target="_blank">WhatsApp Us</a>
+          <a href="#inquiry">Request a Quote</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 LUMIÈRE BEAUTY. All rights reserved.</span>
+        <span>Designed for premium beauty brands.</span>
+      </div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/861000000000?text=Hi%20LUMI%C3%88RE%2C%20I%20would%20like%20to%20request%20a%20quote." target="_blank" class="wa-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.82.49 3.53 1.35 5L2 22l5.09-1.34A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm4.92 7.15l-1.2 5.66c-.1.44-.36.55-.74.34l-2.04-1.35-1.1 1.06c-.12.12-.25.22-.49.22l.17-2.4 3.77-3.4c.16-.15-.04-.23-.25-.08l-4.66 2.94-2-.63c-.44-.13-.45-.43.09-.64l7.86-3.04c.36-.13.68.09.53.62z"/></svg>
+  </a>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Hero subtle zoom on load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.hero').classList.add('loaded');
+    });
+
+    // Product filter
+    const pills = document.querySelectorAll('.filter-pill');
+    const cards = document.querySelectorAll('.product-card');
+    pills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        pills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        const filter = pill.dataset.filter;
+        cards.forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.cat === filter) ? 'block' : 'none';
+        });
+      });
+    });
+
+    // Quote buttons populate product in form
+    document.querySelectorAll('.quote-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const product = btn.dataset.product;
+        const interest = document.getElementById('interest');
+        const message = document.getElementById('message');
+        if(interest) interest.value = 'Full Collection / Multiple Categories';
+        if(message) message.value = `Hi, I would like a quote for: ${product}.\n\n`;
+        document.getElementById('inquiry').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Form submit
+    document.getElementById('quoteForm').addEventListener('submit', e => {
+      e.preventDefault();
+      document.getElementById('quoteForm').style.display = 'none';
+      document.getElementById('formThanks').classList.add('show');
+    });
+  </script>
+</body>
+</html>
