@@ -566,6 +566,22 @@
     }
     .wa-float:hover { transform: scale(1.08); }
     .wa-float svg { width: 28px; height: 28px; fill: var(--white); }
+    .wa-float::before {
+      content: '';
+      position: absolute; inset: 0;
+      border-radius: 50%;
+      background: #25D366;
+      z-index: -1;
+      animation: waPulse 2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1);   opacity: .55; }
+      70%  { transform: scale(1.85); opacity: 0; }
+      100% { transform: scale(1.85); opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wa-float::before { animation: none; }
+    }
 
     /* Mobile nav toggle */
     .menu-toggle {
