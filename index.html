@@ -568,22 +568,55 @@
     .wa-float svg { width: 28px; height: 28px; fill: var(--white); }
 
     /* Mobile nav toggle */
-    .menu-toggle { display: none; }
+    .menu-toggle {
+      display: none;
+      background: none; border: 0; color: inherit;
+      padding: 8px; margin-left: 6px; cursor: pointer; line-height: 0;
+    }
+    .menu-toggle svg { width: 24px; height: 24px; }
 
     @media (max-width: 1024px) {
       .cat-grid, .product-grid, .testi-grid { grid-template-columns: 1fr 1fr; }
       .inquiry-grid { grid-template-columns: 1fr; gap: 48px; }
     }
     @media (max-width: 768px) {
-      .nav-links, .nav-cta .btn-outline { display: none; }
       .menu-toggle { display: block; }
-      .trust-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .nav-cta .btn-outline { display: none; }
+      .nav-links {
+        position: fixed; top: 76px; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--white); color: var(--ink);
+        padding: 6px 22px 22px;
+        box-shadow: 0 24px 40px rgba(27,23,20,.16);
+        transform: translateY(-10px); opacity: 0; pointer-events: none;
+        transition: opacity .22s var(--ease), transform .22s var(--ease);
+        display: flex; z-index: 999;
+      }
+      .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .nav-links a {
+        opacity: 1; padding: 15px 2px; font-size: 15px;
+        color: var(--ink); border-bottom: 1px solid var(--hairline);
+      }
+      .nav-links a::after { display: none; }
+      .nav-cta .btn { width: auto; padding: 11px 18px; font-size: 11px; }
+
+      .trust-grid { grid-template-columns: 1fr 1fr; gap: 26px; }
       .cat-grid, .product-grid, .testi-grid, .service-grid, .why-grid, .footer-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 42px; }
+      .section { padding: 72px 0; }
+      .hero { min-height: 88vh; }
+      .hero h1 { font-size: clamp(34px, 9vw, 44px); }
+      .hero-lead { font-size: 16px; }
       .hero-actions { flex-direction: column; }
-      .btn { width: 100%; }
-      .service-card { padding: 36px 28px; }
-      .testi-grid { gap: 20px; }
+      .hero-actions .btn, .inquiry-form .btn, .form-row .btn { width: 100%; }
+      .service-card { padding: 34px 24px; }
+      .testi-grid { gap: 18px; }
+      .announce { font-size: 11.5px; padding: 8px 16px; letter-spacing: .01em; }
+      .wa-float { width: 52px; height: 52px; }
+      .wa-float svg { width: 24px; height: 24px; }
+    }
+    @media (max-width: 420px) {
+      .footer-grid { gap: 30px; }
+      .hero h1 { font-size: 32px; }
     }
   </style>
 </head>
@@ -603,7 +636,7 @@
       <div class="nav-cta">
         <a href="#inquiry" class="btn btn-gold">Request a Quote</a>
       </div>
-      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg></button>
     </div>
   </nav>
 
@@ -1072,6 +1105,25 @@
       document.getElementById('quoteForm').style.display = 'none';
       document.getElementById('formThanks').classList.add('show');
     });
+
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const ICON_MENU = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>';
+    const ICON_CLOSE = '<svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+    if (menuToggle && navLinks) {
+      const closeMenu = () => {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = ICON_MENU;
+      };
+      menuToggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        menuToggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+      });
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    }
   </script>
 </body>
 </html>
